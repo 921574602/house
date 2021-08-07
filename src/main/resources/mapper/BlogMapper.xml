@@ -65,4 +65,18 @@
 		from fangdongqq
 		where State= '待审核'
 	</select>
+	
+	<!--  前端-程鑫   -->
+	<select id="get_all_fangyuanqq_id" resultType="com.zr.class3.model.FangYuanQQ">
+		select *
+		from fangyuanqq 
+		where FDNum = #{id_fangdong}
+	</select>
+	
+	<!--  前端-程鑫   -->
+	<select id="get_all_heyue_id" resultType="com.zr.class3.model.HeYue">
+		SELECT heyue.HYNum,heyue.FYNum,heyue.ZHNum,heyue.GLYNum,heyue.HYCreate,heyue.HYExam,heyue.HYOver,heyue.State,heyue.HYPicloc
+		FROM fangdong,fangyuan,heyue
+		WHERE fangdong.FDNum=fangyuan.FDNum AND fangyuan.FYNum=heyue.FYNum AND fangdong.FDNum= #{id_fangdong}
+	</select>
 </mapper>

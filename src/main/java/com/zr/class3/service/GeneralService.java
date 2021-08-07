@@ -34,4 +34,9 @@ public interface GeneralService {
 	
 	public List<FangDongQQ> get_all_fangdongqq_info();
 	public List<FangDongQQ> get_pre_fangdongqq_info();
+	
+	
+	public List<FangYuanQQ> get_all_fangyuanqq_id(String id_fangdong);
+	public List<HeYue> get_all_heyue_id(String id_fangdong);
+
 }

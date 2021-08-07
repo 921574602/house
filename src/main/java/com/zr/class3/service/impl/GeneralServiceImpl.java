@@ -142,6 +142,7 @@ public class GeneralServiceImpl implements GeneralService{
 	}
 	
 	//后端-李泽霖
+	@Override
 	public List<FangDongQQ> get_all_fangdongqq_info() {
 	        // TODO Auto-generated method stub
 	        List<FangDongQQ> fangdongqingqiu=blogmapper.get_all_fangdongqq_info();
@@ -149,10 +150,25 @@ public class GeneralServiceImpl implements GeneralService{
 	    }       
 		
 	//后端-李泽霖
+	@Override
 	public List<FangDongQQ> get_pre_fangdongqq_info() {
 	        // TODO Auto-generated method stub
 	        List<FangDongQQ> fangdongqingqiu=blogmapper.get_pre_fangdongqq_info();
 	        return fangdongqingqiu;
 	    }
+
+	//前端-程鑫
+	@Override
+	public List<FangYuanQQ> get_all_fangyuanqq_id(String id_fangdong) {
+		// TODO Auto-generated method stub
+		return blogmapper.get_all_fangyuanqq_id(id_fangdong);
+	}
+
+	//前端-程鑫
+	@Override
+	public List<HeYue> get_all_heyue_id(String id_fangdong) {
+		// TODO Auto-generated method stub
+		return blogmapper.get_all_heyue_id(id_fangdong);
+	}
 
 }

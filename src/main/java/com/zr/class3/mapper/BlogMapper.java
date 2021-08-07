@@ -27,4 +27,8 @@ public interface BlogMapper {
 	List<FangDongQQ> get_all_fangdongqq_info();
 	List<FangDongQQ> get_pre_fangdongqq_info();
 	
+	List<FangYuanQQ> get_all_fangyuanqq_id(@Param("id_fangdong")String id);
+	
+	List<HeYue> get_all_heyue_id(@Param("id_fangdong")String id);
+	
 }

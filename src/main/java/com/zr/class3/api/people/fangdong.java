@@ -15,7 +15,6 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
-import com.zr.class3.model.FangDong;
 
 import com.zr.class3.model.*;
 
@@ -127,5 +126,33 @@ public class fangdong {
 	public List<FangDongQQ> get_pre_fangdongqq_info() {
 
         return generalService.get_pre_fangdongqq_info();
+    }
+	
+	
+	@CrossOrigin
+	@GetMapping("/get_all_fangyuanqq_id")
+	@ApiOperation("根据房东id获取房东所有的房源请求")
+	@ApiImplicitParams({
+		@ApiImplicitParam(name="id_fangdong",value="房东的id",required=true)
+	})
+	//前端-程鑫
+	//已验证通过
+	public List<FangYuanQQ> get_all_fangyuanqq_id(String id_fangdong) {
+
+        return generalService.get_all_fangyuanqq_id(id_fangdong);
+    }
+	
+	
+	@CrossOrigin
+	@GetMapping("/get_all_heyue_id")
+	@ApiOperation("根据房东id获取房东所有的heyue")
+	@ApiImplicitParams({
+		@ApiImplicitParam(name="id_fangdong",value="房东的id",required=true)
+	})
+	//前端-程鑫
+	//已验证通过
+	public List<HeYue> get_all_heyue_id(String id_fangdong) {
+
+        return generalService.get_all_heyue_id(id_fangdong);
     }
 }
