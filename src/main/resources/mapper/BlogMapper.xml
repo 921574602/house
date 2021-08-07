@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zr.class3.mapper.BlogMapper">
+
+	<!--  前端-程鑫   -->
+	<resultMap type="com.zr.class3.model.Menu" id="m">
+		<id property="id" column="id" />
+		<result property="title" column="title" />
+		<result property="icon" column="icon" />
+		<result property="href" column="href" />
+		<result property="parentid" column="parentid" />
+		<collection property="children" column="id"
+			ofType="com.zr.class3.model.Menu" select="search_menu" />
+	</resultMap>
+	
+
+	<!--  前端-程鑫   -->
+	<select id="search_menu" resultMap="m">
+		select *
+		from menu 
+		where parentid = #{fatherid}
+	</select>
+	
+	
+	<select id="get_all_fangdong_info" resultType="com.zr.class3.model.FangDong">
+		select *
+		from fangdong
+		
+	</select>
+	
+	<select id="get_all_zuhu_info" resultType="com.zr.class3.model.ZuHu">
+		select *
+		from zuhu
+	</select>
+	<select id="search_fangdong_info" resultType="com.zr.class3.model.FangDong">
+		
+	</select>
+	<insert id="insertFangDong">
+  		insert into FangDong (FDNum,FDName,Sex,FDAdress,FDEmail,FDTel,FDEdu,FDJob,FDIdnum)
+ 		values (#{FDNum},#{FDName},#{Sex},#{FDAdress},#{FDEmail},#{FDTel},#{FDEdu},#{FDJob},#{FDIdnum})
+	</insert>
+	
+	
+	
+	
+	<!--  前端-程鑫   -->
+	<select id="search_fangyuan" resultType="com.zr.class3.model.FangYuan">
+		select *
+		from fangyuan
+	</select>
+	
+	
+	<!--  后端-李泽霖   -->
+	<select id="get_all_fangdongqq_info" resultType="com.zr.class3.model.FangDongQQ">
+		select *
+		from fangdongqq
+	</select>
+
+
+	<!--  后端-李泽霖   -->
+	<select id="get_pre_fangdongqq_info" resultType="com.zr.class3.model.FangDongQQ">
+		select *
+		from fangdongqq
+		where State= '待审核'
+	</select>
+</mapper>
