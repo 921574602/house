@@ -23,19 +23,45 @@
 		where parentid = #{fatherid}
 	</select>
 	
-	
+	<!--  后端-冯硕   -->
 	<select id="get_all_fangdong_info" resultType="com.zr.class3.model.FangDong">
 		select *
 		from fangdong
 		
 	</select>
 	
+	<!--  后端-冯硕   -->
+	<select id="get_fangdong_info_byid" resultType="com.zr.class3.model.FangDong">
+    	select *
+    	from fangdong
+    	where FDNum= #{FDNum}
+    </select>
+	
+	
+	<!--  后端-冯硕   -->
+	<select id="get_fangyuan_info_by_fangdongid" resultType="com.zr.class3.model.FangYuan">
+    	select *
+    	from fangyuan
+    	where FDNum= #{FDNum}
+    </select>
+    
+	<!--  后端-冯硕   -->
+     <select id="get_heyue_info_by_fangyuanid" resultType="com.zr.class3.model.HeYue">
+    	select *
+		from heyue
+		where FYNum = #{FYNum}
+		and State = "待处理"
+    </select>
+    
+	<!--  后端-冯硕   -->
 	<select id="get_all_zuhu_info" resultType="com.zr.class3.model.ZuHu">
 		select *
 		from zuhu
 	</select>
 	<select id="search_fangdong_info" resultType="com.zr.class3.model.FangDong">
-		
+	
+	
+	<!--  后端-冯硕   -->
 	</select>
 	<insert id="insertFangDong">
   		insert into FangDong (FDNum,FDName,Sex,FDAdress,FDEmail,FDTel,FDEdu,FDJob,FDIdnum)
@@ -102,7 +128,8 @@
 		WHERE fangdong.FDNum=#{num};
 	</delete>
 	
-	
+
+	<!--  后端-李泽霖   -->
 	<delete id="delete_zuhu_Num" >
 		DELETE
 			zuhu,

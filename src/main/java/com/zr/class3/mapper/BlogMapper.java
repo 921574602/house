@@ -18,14 +18,18 @@ public interface BlogMapper {
 
 	List<FangDong> get_all_fangdong_info();
 	void insertFangDong(FangDong fangdong);
+	FangDong get_fangdong_info_byid(String id);
 	
 	List<ZuHu> get_all_zuhu_info();
 	
 	List<FangYuan> search_fangyuan();
+	List<FangYuan> get_fangyuan_info_by_fangdongid(@Param("FDNum") String id);
 	
 
 	List<FangDongQQ> get_all_fangdongqq_info();
 	List<FangDongQQ> get_pre_fangdongqq_info();
+	
+	HeYue get_heyue_info_by_fangyuanid(String FYid);
 	
 	List<FangYuanQQ> get_all_fangyuanqq_id(@Param("id_fangdong")String id);
 	

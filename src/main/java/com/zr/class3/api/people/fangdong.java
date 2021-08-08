@@ -30,7 +30,7 @@ public class fangdong {
 	@GetMapping("/list")
 	@ApiOperation("获取所有房东信息")
 	//后端-冯朔
-	//已验证通过(未验证通过)
+	//已验证通过
 	public List<FangDong> get_fangdong_all() {
 		
 		return generalService.get_fangdong_all();
@@ -45,8 +45,8 @@ public class fangdong {
 		@ApiImplicitParam(name="id",value="编号",required=true)
 	})
 	//后端-冯朔
-	//已验证通过(未验证通过)
-	public Map get_fangdong(int id) {
+	//已验证通过
+	public Map get_fangdong(String id) {
 		
 		return generalService.get_fangdong(id);
 	}
@@ -60,7 +60,7 @@ public class fangdong {
 		@ApiImplicitParam(name="desc",value="描述",required=true)
 	})
 	//后端-冯朔
-	//已验证通过(未验证通过)
+	//未验证通过
 	public Map search_fangdong(String desc) {
 		
 		return generalService.search_fangdong(desc);
@@ -71,7 +71,7 @@ public class fangdong {
 	@ApiOperation("添加新的房东信息")
 	@ApiImplicitParams({})
 	//后端-冯朔
-	//已验证通过(未验证通过)
+	//已验证通过
 	public Map add_fangdong(FangDong fangdong) {
 		
 		return generalService.add_fangdong(fangdong);
@@ -79,7 +79,7 @@ public class fangdong {
 	
 	
 	@CrossOrigin
-	@GetMapping("/update/{id}")
+	@GetMapping("/update")
 	@ApiOperation("修改指定的房东信息")
 	@ApiImplicitParams({
 		@ApiImplicitParam(name="id",value="编号",required=true)
@@ -99,7 +99,7 @@ public class fangdong {
 		@ApiImplicitParam(name="id",value="编号",required=true)
 	})
 	//后端-冯朔
-	//已验证通过(未验证通过)
+	//未验证通过
 	public Map delete_fangdong(int id) {
 		
 		return generalService.update_fangdong(id);

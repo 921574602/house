@@ -1,5 +1,6 @@
 package com.zr.class3.service.impl;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -45,12 +46,28 @@ public class GeneralServiceImpl implements GeneralService{
 	
 	//后端-冯朔
 	@Override
-	public Map get_fangdong(int id) {
-		List<FangDong> fangdong=blogmapper.get_all_fangdong_info();
+	public Map get_fangdong(String id) {
+		FangDong fangdong=blogmapper.get_fangdong_info_byid(id);
 		Map map= new HashMap();
+		List<FangYuan> fangyuan=blogmapper.get_fangyuan_info_by_fangdongid(id);
+
+		if (fangyuan.isEmpty())
+			map.put("ifHaveFangyuan","0");
+		else {
+			map.put("ifHaveFangyuan","1");
+			map.put("data_fangyuan", fangyuan);
+		    List<HeYue> heyue= new ArrayList <HeYue>();
+			for(int i = 0; i<fangyuan.size();i++) {
+				String FYid=fangyuan.get(i).getFYNum();
+				HeYue single_heyue=blogmapper.get_heyue_info_by_fangyuanid(FYid);
+				heyue.add(single_heyue);
+			}
+			map.put("data_heyue",heyue);
+		}
 		map.put("code",200);
-		map.put("data", fangdong.get(id-1));
-		map.put("desc", "菜单加载成功");
+		map.put("data", fangdong);
+		
+		map.put("desc", "房东信息加载成功");
 		return map;
 	}
 	

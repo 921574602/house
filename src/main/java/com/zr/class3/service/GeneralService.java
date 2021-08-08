@@ -9,7 +9,7 @@ public interface GeneralService {
 	
 	
 	public List<FangDong> get_fangdong_all();
-	public Map get_fangdong(int id);
+	public Map get_fangdong(String id);
 	public Map search_fangdong(String desc);
 	public Map add_fangdong(FangDong fangdong);
 	public Map update_fangdong(int id);
