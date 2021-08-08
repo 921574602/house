@@ -44,32 +44,59 @@ public class GeneralServiceImpl implements GeneralService{
 		return fangdong;
 	}
 	
+	
 	//后端-冯朔
 	@Override
-	public Map get_fangdong(String id) {
-		FangDong fangdong=blogmapper.get_fangdong_info_byid(id);
-		Map map= new HashMap();
-		List<FangYuan> fangyuan=blogmapper.get_fangyuan_info_by_fangdongid(id);
-
-		if (fangyuan.isEmpty())
-			map.put("ifHaveFangyuan","0");
-		else {
-			map.put("ifHaveFangyuan","1");
-			map.put("data_fangyuan", fangyuan);
-		    List<HeYue> heyue= new ArrayList <HeYue>();
-			for(int i = 0; i<fangyuan.size();i++) {
-				String FYid=fangyuan.get(i).getFYNum();
-				HeYue single_heyue=blogmapper.get_heyue_info_by_fangyuanid(FYid);
-				heyue.add(single_heyue);
-			}
-			map.put("data_heyue",heyue);
-		}
-		map.put("code",200);
-		map.put("data", fangdong);
-		
-		map.put("desc", "房东信息加载成功");
-		return map;
+	public List<FangDong> get_all_fangdong_info() {
+		// TODO Auto-generated method stub
+		List<FangDong> fangdong=blogmapper.get_all_fangdong_info();
+		return fangdong;
 	}
+	
+	//后端-冯朔
+	@Override
+	public List<FangYuanQQ> get_fangyuan_info_by_fangdongid(String id){
+		List<FangYuanQQ> fangyuan = blogmapper.get_fangyuan_info_by_fangdongid(id);
+		return fangyuan;
+	}
+	//后端-冯朔
+	@Override
+	public List<HeYue> get_heyue_info_by_fangdongid(String id){
+		List<HeYue> heyue = blogmapper.get_heyue_info_by_fangdongid(id);
+		return heyue;
+	}
+
+	
+	
+	
+	
+	
+//	//后端-冯朔
+//	@Override
+//	public Map get_fangdong(String id) {
+//		FangDong fangdong=blogmapper.get_fangdong_info_byid(id);
+//		Map map= new HashMap();
+//		List<FangYuan> fangyuan=blogmapper.get_fangyuan_info_by_fangdongid(id);
+//
+//		if (fangyuan.isEmpty())
+//			map.put("ifHaveFangyuan","0");
+//		else {
+//			map.put("ifHaveFangyuan","1");
+//			map.put("data_fangyuan", fangyuan);
+//		    List<HeYue> heyue= new ArrayList <HeYue>();
+//			for(int i = 0; i<fangyuan.size();i++) {
+//				String FYid=fangyuan.get(i).getFYNum();
+//				HeYue single_heyue=blogmapper.get_heyue_info_by_fangyuanid(FYid);
+//				heyue.add(single_heyue);
+//			}
+//			map.put("data_heyue",heyue);
+//		}
+//		map.put("code",200);
+//		map.put("data", fangdong);
+//		
+//		map.put("desc", "房东信息加载成功");
+//		return map;
+//	}
 	
 	//后端-冯朔
 	@Override 
@@ -200,5 +227,77 @@ public class GeneralServiceImpl implements GeneralService{
 		int deleteone=blogmapper.delete_zuhu_Num(num);
 		return deleteone;
 	}
+	
+	
+	
+	//后端-李泽霖
+		@Override
+		public List<FangYuan> get_all_fangyuan_info() {
+			// TODO Auto-generated method stub
+			List<FangYuan> fangyuan=blogmapper.get_all_fangyuan_info();
+			return fangyuan;
+		}
+		
+		//后端-李泽霖
+		@Override
+		public int delete_fangyuan_Num(String num) {
+			int deleteone=blogmapper.delete_fangyuan_Num(num);
+			return deleteone;
+		}
+		
+		//后端-李泽霖
+		@Override
+		public List<FangYuan> get_fangyuan_info_fromid(String num) {
+			// TODO Auto-generated method stub
+				List<FangYuan> fangyuan=blogmapper.get_fangyuan_info_fromid(num);
+				return fangyuan;
+		}
+		
+		
+		
+		//后端-李泽霖
+		@Override
+		public List<FangYuanQQ> get_all_fangyuanqq_info() {
+			// TODO Auto-generated method stub
+			List<FangYuanQQ> fangyuanqq=blogmapper.get_all_fangyuanqq_info();
+			return fangyuanqq;
+		}
+		
+		
+		
+		//后端-李泽霖
+		@Override
+		public List<FangDong> get_fangdong_info_from_fangyuanid(String num) {
+			// TODO Auto-generated method stub
+				List<FangDong> fangdong=blogmapper.get_fangdong_info_from_fangyuanid(num);
+				return fangdong;
+		}
+		
+		
+		
+		//后端-李泽霖
+		@Override
+		public List<ZuHu> get_zuhu_info_fromid(String num) {
+			// TODO Auto-generated method stub
+				List<ZuHu> zuhu=blogmapper.get_zuhu_info_fromid(num);
+				return zuhu;
+		}
+		
+		
+		
+		//后端-冯硕
+		@Override
+		public List<KanFangQQ> get_kanfangqq_by_zuhuid(String id){
+			List<KanFangQQ> kanfangqq= blogmapper.get_kanfangqq_by_zuhuid(id);
+			return kanfangqq;
+		}
+		
+		//后端-冯硕
+		@Override
+		public List<HeYue> get_heyue_by_zuhuid(String id){
+			List<HeYue> heyue=blogmapper.get_heyue_by_zuhuid(id);
+			return heyue;
+		}
+
 
 }

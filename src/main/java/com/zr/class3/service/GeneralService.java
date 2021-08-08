@@ -9,7 +9,7 @@ public interface GeneralService {
 	
 	
 	public List<FangDong> get_fangdong_all();
-	public Map get_fangdong(String id);
+//	public Map get_fangdong(String id);
 	public Map search_fangdong(String desc);
 	public Map add_fangdong(FangDong fangdong);
 	public Map update_fangdong(int id);
@@ -41,5 +41,27 @@ public interface GeneralService {
 	
 	public int delete_fangdong_Num(String num);
 	public int delete_zuhu_Num(String num);
+	
+	
+	
+	public List<FangYuan> get_all_fangyuan_info();
+	public int delete_fangyuan_Num(String num);
+	
+	public List<FangYuan>get_fangyuan_info_fromid(String num);
+	
+	public List<FangYuanQQ> get_all_fangyuanqq_info();
+	
+	public List<FangDong>get_fangdong_info_from_fangyuanid(String num);
+	
+	
+	public List<FangDong> get_all_fangdong_info();
+	public List<FangYuanQQ> get_fangyuan_info_by_fangdongid(String id);
+	public List<HeYue> get_heyue_info_by_fangdongid(String id);
 
+	public List<ZuHu>get_zuhu_info_fromid(String num);
+	
+	
+	public List<KanFangQQ> get_kanfangqq_by_zuhuid(String id);
+	
+	public List<HeYue>  get_heyue_by_zuhuid(String id);
 }

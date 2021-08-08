@@ -15,6 +15,8 @@ import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 
+import com.zr.class3.model.HeYue;
+import com.zr.class3.model.KanFangQQ;
 import com.zr.class3.model.ZuHu;
 import java.util.List;
 
@@ -113,5 +115,46 @@ public class zuhu {
 	//后端-李泽霖
 	public int delete_zuhu_Num(String num){
 		return generalService.delete_zuhu_Num(num);
+	}
+	
+	
+	
+	@CrossOrigin
+	@GetMapping("/get_zuhu_info_fromid")
+	@ApiOperation("通过搜索id获取租户信息")
+	//后端-李泽霖
+	public List<ZuHu> get_zuhu_info_fromid(String num) {
+
+        return generalService.get_zuhu_info_fromid(num);
+    }
+	
+	
+	
+	@CrossOrigin
+	@GetMapping("/get_kanfangqq_by_zuhuid")
+	@ApiOperation("通过租户的id和看房请求表可以获得与此租户相关的所有看房请求，返回看房请求类型的list")
+	@ApiImplicitParams({
+		@ApiImplicitParam(name="id",value="租户id",required=true)
+	})
+	//后端-冯朔
+	//已验证通过(未验证通过)
+	public List<KanFangQQ> get_kanfangqq_by_zuhuid(String id) {
+		
+		return generalService.get_kanfangqq_by_zuhuid(id);
+	}
+	
+	
+	
+	@CrossOrigin
+	@GetMapping("/get_heyue_by_zuhuid")
+	@ApiOperation("通过租户的id和合约表可以获得与此租户相关的所有合约，返回合约类型的list")
+	@ApiImplicitParams({
+		@ApiImplicitParam(name="id",value="编号",required=true)
+	})
+	//后端-冯朔
+	//已验证通过(未验证通过)
+	public List<HeYue> get_heyue_by_zuhuid(String id) {
+		
+		return generalService.get_heyue_by_zuhuid(id);
 	}
 }

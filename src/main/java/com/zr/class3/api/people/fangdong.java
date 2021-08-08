@@ -26,30 +26,64 @@ public class fangdong {
 	private GeneralService generalService;
 	
 	
+	
 	@CrossOrigin
-	@GetMapping("/list")
-	@ApiOperation("获取所有房东信息")
+	@GetMapping("/get_all_fangdong_info")
+	@ApiOperation("获取所有房东表中的所有条目并返回房东类型的list")
 	//后端-冯朔
-	//已验证通过
-	public List<FangDong> get_fangdong_all() {
+	//已验证通过(未验证通过)
+	public List<FangDong> get_all_fangdong_info() {
 		
-		return generalService.get_fangdong_all();
+		return generalService.get_all_fangdong_info();
 	}
 	
 	
 	
 	@CrossOrigin
-	@GetMapping("/get")
-	@ApiOperation("根据id获取单个房东的信息")
+	@GetMapping("/get_fangyuan_info_by_fangdongid")
+	@ApiOperation("通过房东的编号获取此房东所有的房源请求(未审核的)并返回房源类型的list")
 	@ApiImplicitParams({
 		@ApiImplicitParam(name="id",value="编号",required=true)
 	})
 	//后端-冯朔
-	//已验证通过
-	public Map get_fangdong(String id) {
+	//已验证通过(未验证通过)
+	public List<FangYuanQQ> get_fangyuan_info_by_fangdongid(String id) {
 		
-		return generalService.get_fangdong(id);
+		return generalService.get_fangyuan_info_by_fangdongid(id);
 	}
+	
+	
+	@CrossOrigin
+	@GetMapping("/get_heyue_info_by_fangdongid")
+	@ApiOperation("通过房东编号获取此房东所有的合约并且状态是待审核的")
+	@ApiImplicitParams({
+		@ApiImplicitParam(name="id",value="编号",required=true)
+	})
+	//后端-冯朔
+	//已验证通过(未验证通过)
+	public List<HeYue> get_heyue_info_by_fangdongid(String id) {
+		
+		return generalService.get_heyue_info_by_fangdongid(id);
+	}
+	
+	
+	
+	
+	
+	
+	
+//	@CrossOrigin
+//	@GetMapping("/get")
+//	@ApiOperation("根据id获取单个房东的信息")
+//	@ApiImplicitParams({
+//		@ApiImplicitParam(name="id",value="编号",required=true)
+//	})
+//	//后端-冯朔
+//	//已验证通过
+//	public Map get_fangdong(String id) {
+//		
+//		return;
+//	}
 	
 	
 	
