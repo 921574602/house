@@ -7,6 +7,12 @@ public class ZuHu {
 	private String ZHEdu;  //租户学历
 	private String ZHJob;  //租户职业
 	private String Sex;    //租户性别
+	
+	
+	
+	private String KanFangQQ;
+	private String HeYueQQ;
+	
 	public String getZHNum() {
 		return ZHNum;
 	}
@@ -43,10 +49,40 @@ public class ZuHu {
 	public void setSex(String sex) {
 		Sex = sex;
 	}
+	public String getKanFangQQ() {
+		return KanFangQQ;
+	}
+	public void setKanFangQQ(String kanFangQQ) {
+		KanFangQQ = kanFangQQ;
+	}
+	public String getHeYueQQ() {
+		return HeYueQQ;
+	}
+	public void setHeYueQQ(String heYueQQ) {
+		HeYueQQ = heYueQQ;
+	}
 	@Override
 	public String toString() {
-		return "ZuHu [ZHNum=" + ZHNum + ", ZHName=" + ZHName + ", ZHTel=" + ZHTel + ", ZHEdu=" + ZHEdu + ", ZHJob="
-				+ ZHJob + ", Sex=" + Sex + "]";
+		StringBuilder builder = new StringBuilder();
+		builder.append("ZuHu [ZHNum=");
+		builder.append(ZHNum);
+		builder.append(", ZHName=");
+		builder.append(ZHName);
+		builder.append(", ZHTel=");
+		builder.append(ZHTel);
+		builder.append(", ZHEdu=");
+		builder.append(ZHEdu);
+		builder.append(", ZHJob=");
+		builder.append(ZHJob);
+		builder.append(", Sex=");
+		builder.append(Sex);
+		builder.append(", KanFangQQ=");
+		builder.append(KanFangQQ);
+		builder.append(", HeYueQQ=");
+		builder.append(HeYueQQ);
+		builder.append("]");
+		return builder.toString();
 	}
+
 	
 }

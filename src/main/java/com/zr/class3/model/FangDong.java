@@ -10,6 +10,28 @@ public class FangDong {
 	private String FDEdu;     //房东学历
 	private String FDJob;     //房东职业
 	private String FDIdnum;   //房东身份证号码
+	
+	
+	
+	
+	
+	
+	
+	private String FYQQ;
+	private String HeYueQueRen;
+	
+	public String getFYQQ() {
+		return FYQQ;
+	}
+	public void setFYQQ(String fYQQ) {
+		FYQQ = fYQQ;
+	}
+	public String getHeYueQueRen() {
+		return HeYueQueRen;
+	}
+	public void setHeYueQueRen(String heYueQueRen) {
+		HeYueQueRen = heYueQueRen;
+	}
 	public String getFDNum() {
 		return FDNum;
 	}
@@ -66,9 +88,31 @@ public class FangDong {
 	}
 	@Override
 	public String toString() {
-		return "FangDong [FDNum=" + FDNum + ", FDName=" + FDName + ", Sex=" + Sex + ", FDAdress=" + FDAdress
-				+ ", FDEmail=" + FDEmail + ", FDTel=" + FDTel + ", FDEdu=" + FDEdu + ", FDJob=" + FDJob + ", FDIdnum="
-				+ FDIdnum + "]";
+		StringBuilder builder = new StringBuilder();
+		builder.append("FangDong [FDNum=");
+		builder.append(FDNum);
+		builder.append(", FDName=");
+		builder.append(FDName);
+		builder.append(", Sex=");
+		builder.append(Sex);
+		builder.append(", FDAdress=");
+		builder.append(FDAdress);
+		builder.append(", FDEmail=");
+		builder.append(FDEmail);
+		builder.append(", FDTel=");
+		builder.append(FDTel);
+		builder.append(", FDEdu=");
+		builder.append(FDEdu);
+		builder.append(", FDJob=");
+		builder.append(FDJob);
+		builder.append(", FDIdnum=");
+		builder.append(FDIdnum);
+		builder.append(", FYQQ=");
+		builder.append(FYQQ);
+		builder.append(", HeYueQueRen=");
+		builder.append(HeYueQueRen);
+		builder.append("]");
+		return builder.toString();
 	}
 
 	
