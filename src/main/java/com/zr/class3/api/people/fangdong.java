@@ -155,4 +155,20 @@ public class fangdong {
 
         return generalService.get_all_heyue_id(id_fangdong);
     }
+	
+	
+	
+	@CrossOrigin
+	@GetMapping("/detele_fangdong_num")
+	@ApiOperation("删除一位房东及其相关信息")
+	@ApiImplicitParams({
+		@ApiImplicitParam(name="num",value="房东的id",required=true)
+	})
+	//后端-李泽霖
+	//已验证通过
+	public int delete_fangdong_Num(String num){
+		return generalService.delete_fangdong_Num(num);
+	}
+	
+	
 }

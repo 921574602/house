@@ -31,4 +31,8 @@ public interface BlogMapper {
 	
 	List<HeYue> get_all_heyue_id(@Param("id_fangdong")String id);
 	
+	int delete_fangdong_Num(@Param("num") String num);
+	
+	int delete_zuhu_Num(@Param("num")String num);
+	
 }

@@ -170,5 +170,18 @@ public class GeneralServiceImpl implements GeneralService{
 		// TODO Auto-generated method stub
 		return blogmapper.get_all_heyue_id(id_fangdong);
 	}
+	
+	//后端-李泽霖
+	@Override
+	public int delete_fangdong_Num(String num) {
+		return blogmapper.delete_fangdong_Num(num);
+	}
+	
+	//后端-李泽霖
+	@Override	
+	public int delete_zuhu_Num(String num) {
+		int deleteone=blogmapper.delete_zuhu_Num(num);
+		return deleteone;
+	}
 
 }

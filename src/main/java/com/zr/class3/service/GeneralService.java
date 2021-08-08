@@ -38,5 +38,8 @@ public interface GeneralService {
 	
 	public List<FangYuanQQ> get_all_fangyuanqq_id(String id_fangdong);
 	public List<HeYue> get_all_heyue_id(String id_fangdong);
+	
+	public int delete_fangdong_Num(String num);
+	public int delete_zuhu_Num(String num);
 
 }

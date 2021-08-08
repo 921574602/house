@@ -104,4 +104,14 @@ public class zuhu {
 		
 		return generalService.update_zuhu(id);
 	}
+	
+	
+	
+	@CrossOrigin
+	@GetMapping("/detele_zuhu_num")
+	@ApiOperation("删除一位租户及其相关信息")
+	//后端-李泽霖
+	public int delete_zuhu_Num(String num){
+		return generalService.delete_zuhu_Num(num);
+	}
 }

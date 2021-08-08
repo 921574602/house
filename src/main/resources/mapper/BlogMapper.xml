@@ -79,4 +79,47 @@
 		FROM fangdong,fangyuan,heyue
 		WHERE fangdong.FDNum=fangyuan.FDNum AND fangyuan.FYNum=heyue.FYNum AND fangdong.FDNum= #{id_fangdong}
 	</select>
+	
+	
+	<!--  后端-李泽霖   -->
+	<delete id="delete_fangdong_Num" >
+		DELETE
+			fangdong,
+			fangyuan,
+			heyue,
+			heyuejl
+		FROM
+			fangdong
+			LEFT JOIN fangyuanqq
+				ON fangdong.FDNum=fangyuanqq.FDNum
+			LEFT JOIN fangyuan
+				ON fangdong.FDNum=fangyuan.FDNum
+			LEFT JOIN heyue
+				ON fangyuan.FYNum=heyue.FYNum
+			LEFT JOIN heyuejl
+				ON fangyuan.FYNum=heyuejl.FYNum
+
+		WHERE fangdong.FDNum=#{num};
+	</delete>
+	
+	
+	<delete id="delete_zuhu_Num" >
+		DELETE
+			zuhu,
+			kanfangqq,
+			heyue,
+			heyuejl,
+			fangdongqq
+		FROM
+			zuhu
+			LEFT JOIN kanfangqq
+				ON zuhu.ZHNum=kanfangqq.ZHNum
+			LEFT JOIN fangdongqq
+				ON zuhu.ZHNum=fangdongqq.ZHNum
+			LEFT JOIN heyue
+				ON zuhu.ZHNum=heyue.ZHNum
+			LEFT JOIN heyuejl
+				ON zuhu.ZHNum=heyuejl.ZHNum
+		WHERE zuhu.ZHNum=#{num};
+	</delete>
 </mapper>
