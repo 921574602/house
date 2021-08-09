@@ -67,7 +67,26 @@ public class fangdong {
 	}
 	
 	
-	
+	@CrossOrigin
+	@GetMapping("/get_fangdong_list_full")
+	@ApiOperation("获取所有房东(全部信息，包含是否有请求等)")
+	//前端-程鑫
+	//已验证通过(未验证通过)
+	public List<FangDong> get_fangdong_list_full() {
+		List<FangDong> L =generalService.get_all_fangdong_info();
+		for(int i=0;i<L.size();i++)
+		{
+			if(generalService.get_fangyuan_info_by_fangdongid(L.get(i).getFDNum()).size()>0)
+			{
+				L.get(i).setFYQQ("是");
+			}
+			if(generalService.get_heyue_info_by_fangdongid(L.get(i).getFDNum()).size()>0)
+			{
+				L.get(i).setHeYueQueRen("是");
+			}
+		}
+		return L;
+	}	
 	
 	
 	

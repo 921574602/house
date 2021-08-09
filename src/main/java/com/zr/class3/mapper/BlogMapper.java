@@ -63,4 +63,11 @@ public interface BlogMapper {
 	
 	
 	List<HeYue> get_heyue_by_zuhuid(@Param("ZHNum") String id);
+	
+	
+	List<KanFangQQ> get_kanfangqq_of_zuhu(@Param("zhnum") String id);
+	
+	List<HeYue> get_pre_heyue_info(@Param("zhnum") String id);
+	
+	List<FangYuanQQ> get_pre_fangyuanqq_info();
 }

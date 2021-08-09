@@ -298,6 +298,31 @@ public class GeneralServiceImpl implements GeneralService{
 			List<HeYue> heyue=blogmapper.get_heyue_by_zuhuid(id);
 			return heyue;
 		}
+		
+		
+		
+		//后端-朱子剑
+		@Override 
+		public List<KanFangQQ> get_kanfangqq_of_zuhu(String id) {
+	        		// TODO Auto-generated method stub
+	        		List<KanFangQQ> kanfangqingqiu=blogmapper.get_kanfangqq_of_zuhu(id);
+	        		return kanfangqingqiu;
+	   	 }
+		
+		//后端-朱子剑
+		@Override 
+		public List<HeYue> get_pre_heyue_info(String id) {
+		     // TODO Auto-generated method stub
+		     List<HeYue> heyue=blogmapper.get_pre_heyue_info(id);
+		     return heyue;
+		 } 
 
+		//朱子剑
+		@Override 
+		public List<FangYuanQQ> get_pre_fangyuanqq_info() {
+			 // TODO Auto-generated method stub
+			 List<FangYuanQQ> fangyuanqingqiu=blogmapper.get_pre_fangyuanqq_info();
+			 return fangyuanqingqiu;
+		}
 
 }

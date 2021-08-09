@@ -15,6 +15,7 @@ import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 
+import com.zr.class3.model.FangYuanQQ;
 import com.zr.class3.model.HeYue;
 import com.zr.class3.model.KanFangQQ;
 import com.zr.class3.model.ZuHu;
@@ -156,5 +157,42 @@ public class zuhu {
 	public List<HeYue> get_heyue_by_zuhuid(String id) {
 		
 		return generalService.get_heyue_by_zuhuid(id);
+	}
+	
+	
+	@CrossOrigin
+	@GetMapping("/get/{id}")
+	@ApiOperation("根据租户id获取指定看房请求信息")
+	@ApiImplicitParams({
+		@ApiImplicitParam(name="id",value="租户编号",required=true)
+	})
+	public List<KanFangQQ> get_kanfangqq_of_zuhu(String id) {
+
+        		return generalService.get_kanfangqq_of_zuhu(id);
+    	}
+	
+	
+	
+	
+	@CrossOrigin
+	@GetMapping("/get_heyue_unsolved_byid")
+	@ApiOperation("根据租户id获取指定的待处理的合约信息")
+	@ApiImplicitParams({
+		@ApiImplicitParam(name="id",value="租户编号",required=true)
+	})
+	//后端-朱子剑
+	public List<HeYue> get_pre_heyue_info(String id) {
+		
+		return generalService.get_pre_heyue_info(id);
+	}
+	
+	
+	@CrossOrigin
+	@GetMapping("/get_fangyuanqq_unsolved_all")
+	@ApiOperation("获取指定的待处理的房源请求信息")
+	//后端-朱子剑
+	public List<FangYuanQQ> get_pre_fangyuanqq_info() {
+		
+		return generalService.get_pre_fangyuanqq_info();
 	}
 }

@@ -31,7 +31,7 @@
 	<select id="get_fangyuan_info_by_fangdongid" resultType="com.zr.class3.model.FangYuanQQ">
     	select *
     	from fangyuanqq
-    	where FDNum= #{FDNum} AND State = "待处理"
+    	where FDNum= #{FDNum} AND State = "待审核"
     </select>
     
 	<!--  后端-冯硕   -->
@@ -241,4 +241,27 @@
     	from heyue
     	where ZHNum= #{ZHNum}
     </select>
+    
+    
+    <!-- 后端-朱子剑 -->
+    <select id="get_kanfangqq_of_zuhu" resultType="com.zr.class3.model.KanFangQQ">
+		select *
+		from kanfangqq
+		where ZHNum = #{zhnum}
+	</select>
+	
+	<!-- 后端-朱子剑 -->
+	<select id="get_pre_heyue_info" resultType="com.zr.class3.model.HeYue">
+		select *
+		from heyue
+		where State= '待审核' AND ZHNum = #{zhnum}
+	</select>
+	
+	
+	<!-- 后端-朱子剑 -->
+	<select id="get_pre_fangyuanqq_info" resultType="com.zr.class3.model.FangYuanQQ">
+		select *
+		from fangyuanqq
+		where State= '待审核'
+	</select>
 </mapper>

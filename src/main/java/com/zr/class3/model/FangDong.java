@@ -17,8 +17,8 @@ public class FangDong {
 	
 	
 	
-	private String FYQQ;
-	private String HeYueQueRen;
+	private String FYQQ="否";
+	private String HeYueQueRen="否";
 	
 	public String getFYQQ() {
 		return FYQQ;
