@@ -247,7 +247,7 @@
     <select id="get_kanfangqq_of_zuhu" resultType="com.zr.class3.model.KanFangQQ">
 		select *
 		from kanfangqq
-		where ZHNum = #{zhnum}
+		where ZHNum = #{zhnum} AND State= '待审核'
 	</select>
 	
 	<!-- 后端-朱子剑 -->

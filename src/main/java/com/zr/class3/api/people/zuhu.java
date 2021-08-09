@@ -161,8 +161,8 @@ public class zuhu {
 	
 	
 	@CrossOrigin
-	@GetMapping("/get/{id}")
-	@ApiOperation("根据租户id获取指定看房请求信息")
+	@GetMapping("/get_kanfangqq_unsolved_byid")
+	@ApiOperation("根据租户id获取指定看房请求信息(待处理的)")
 	@ApiImplicitParams({
 		@ApiImplicitParam(name="id",value="租户编号",required=true)
 	})
