@@ -264,4 +264,39 @@
 		from fangyuanqq
 		where State= '待审核'
 	</select>
+	
+	
+	<!-- 后端-朱子剑 -->
+	<select id="get_pass_heyue_info" resultType="com.zr.class3.model.HeYue">
+		select *
+		from heyue
+		where State= '通过'
+	</select>
+	
+	
+	<!-- 后端-朱子剑 -->
+	<select id="get_zuhu_info_by_heyueid" resultType="com.zr.class3.model.ZuHu">
+		select zuhu.*
+		from heyue inner join zuhu
+		on heyue.ZHNum = zuhu.ZHNum
+		where heyue.HYNum = #{hynum}
+	</select>
+	
+	
+	<!-- 后端-冯朔 -->
+   	<select id="get_kanfangqq_by_fangyuanid" resultType="com.zr.class3.model.KanFangQQ">
+  		select *
+		from kanfangqq
+		where FYNum=#{FYNum} and state="待审核"
+   	</select>
+   	
+   	
+   	
+   	<!-- 后端-冯朔 -->
+    <select id="get_heyue_by_fangyuanid" resultType="com.zr.class3.model.HeYue">
+   		select *
+		from heyue
+		where FYNum=#{FYNum} and state="待审核"
+    </select>
+   	
 </mapper>

@@ -70,4 +70,12 @@ public interface GeneralService {
 	public List<HeYue> get_pre_heyue_info(String id);
 	
 	public List<FangYuanQQ> get_pre_fangyuanqq_info();
+	
+	public List<HeYue> get_pass_heyue_info();
+	
+	public List<ZuHu> get_zuhu_info_by_heyueid(String id);
+	
+	public List<KanFangQQ> get_kanfangqq_by_fangyuanid(String id);
+	
+	public List<HeYue> get_heyue_by_fangyuanid(String id);
 }

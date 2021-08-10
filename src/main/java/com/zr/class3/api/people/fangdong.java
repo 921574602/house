@@ -71,7 +71,7 @@ public class fangdong {
 	@GetMapping("/get_fangdong_list_full")
 	@ApiOperation("获取所有房东(全部信息，包含是否有请求等)")
 	//前端-程鑫
-	//已验证通过(未验证通过)
+	//已验证通过
 	public List<FangDong> get_fangdong_list_full() {
 		List<FangDong> L =generalService.get_all_fangdong_info();
 		for(int i=0;i<L.size();i++)

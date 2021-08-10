@@ -15,6 +15,7 @@ import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 
+import com.zr.class3.model.FangDong;
 import com.zr.class3.model.FangYuanQQ;
 import com.zr.class3.model.HeYue;
 import com.zr.class3.model.KanFangQQ;
@@ -166,6 +167,7 @@ public class zuhu {
 	@ApiImplicitParams({
 		@ApiImplicitParam(name="id",value="租户编号",required=true)
 	})
+	//后端-朱子剑
 	public List<KanFangQQ> get_kanfangqq_of_zuhu(String id) {
 
         		return generalService.get_kanfangqq_of_zuhu(id);
@@ -195,4 +197,26 @@ public class zuhu {
 		
 		return generalService.get_pre_fangyuanqq_info();
 	}
+	
+	
+	@CrossOrigin
+	@GetMapping("/get_zuhu_list_full")
+	@ApiOperation("获取所有租户(全部信息，包含是否有请求等)")
+	//前端-程鑫
+	//已验证通过
+	public List<ZuHu> get_fangdong_list_full() {
+		List<ZuHu> L =generalService.get_zuhu_all();
+		for(int i=0;i<L.size();i++)
+		{
+			if(generalService.get_pre_heyue_info(L.get(i).getZHNum()).size()>0)
+			{
+				L.get(i).setHeYueQQ("是");
+			}
+			if(generalService.get_kanfangqq_of_zuhu(L.get(i).getZHNum()).size()>0)
+			{
+				L.get(i).setKanFangQQ("是");
+			}
+		}
+		return L;
+	}	
 }

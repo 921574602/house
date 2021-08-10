@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.zr.class3.model.FangDong;
 import com.zr.class3.model.FangYuan;
 import com.zr.class3.model.FangYuanQQ;
+import com.zr.class3.model.HeYue;
+import com.zr.class3.model.KanFangQQ;
 import com.zr.class3.service.GeneralService;
 
 import io.swagger.annotations.Api;
@@ -104,4 +106,35 @@ public class FangYuanApi {
 
         return generalService.get_fangdong_info_from_fangyuanid(num);
     }
+	
+	
+	
+	
+	@CrossOrigin
+	@GetMapping("/get_kanfangqq_by_fangyuanid")
+	@ApiOperation("根据房源id获取是否有和此房源相关的看房申请，并且是待审核状态")
+	@ApiImplicitParams({
+		@ApiImplicitParam(name="id",value="编号",required=true)
+	})
+	//后端-冯朔
+	//已验证通过(未验证通过)
+	public List<KanFangQQ> get_kanfangqq_by_fangyuanid(String id) {
+		
+		return generalService.get_kanfangqq_by_fangyuanid(id);
+	}
+	
+	
+	
+	@CrossOrigin
+	@GetMapping("/get_heyue_by_fangyuanid")
+	@ApiOperation("根据房源id获取是否有和此房源相关的合约，并且是待审核状态")
+	@ApiImplicitParams({
+		@ApiImplicitParam(name="id",value="编号",required=true)
+	})
+	//后端-冯朔
+	//已验证通过(未验证通过)
+	public List<HeYue> get_heyue_by_fangyuanid(String id) {
+		
+		return generalService.get_heyue_by_fangyuanid(id);
+	}
 }

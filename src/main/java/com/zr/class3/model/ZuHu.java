@@ -10,8 +10,8 @@ public class ZuHu {
 	
 	
 	
-	private String KanFangQQ;
-	private String HeYueQQ;
+	private String KanFangQQ="否";
+	private String HeYueQQ="否";
 	
 	public String getZHNum() {
 		return ZHNum;
