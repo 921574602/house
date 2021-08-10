@@ -20,6 +20,8 @@ import com.zr.class3.model.FangYuanQQ;
 import com.zr.class3.model.HeYue;
 import com.zr.class3.model.KanFangQQ;
 import com.zr.class3.model.ZuHu;
+
+import java.util.HashMap;
 import java.util.List;
 
 @RestController
@@ -34,10 +36,12 @@ public class zuhu {
 	@GetMapping("/list")
 	@ApiOperation("获取所有租户信息")
 	//后端-冯朔
-	//已验证通过(未验证通过)
-	public List<ZuHu> get_zuhu_all() {
-		
-		return generalService.get_zuhu_all();
+	//已验证通过
+	public Map get_zuhu_all() {
+		Map map=new HashMap();
+		map.put("data", generalService.get_zuhu_all());
+		map.put("code", 200);
+		return map;
 	}
 	
 	
@@ -51,8 +55,10 @@ public class zuhu {
 	//后端-冯朔
 	//已验证通过(未验证通过)
 	public Map get_zuhu(int id) {
-		
-		return generalService.get_zuhu(id);
+		Map map=new HashMap();
+		map.put("data", generalService.get_zuhu(id));
+		map.put("code", 200);
+		return map;
 	}
 	
 	
@@ -66,8 +72,10 @@ public class zuhu {
 	//后端-冯朔
 	//已验证通过(未验证通过)
 	public Map search_zuhu(String desc) {
-		
-		return generalService.search_zuhu(desc);
+		Map map=new HashMap();
+		map.put("data", generalService.search_zuhu(desc));
+		map.put("code", 200);
+		return map;
 	}
 	
 	@CrossOrigin
@@ -77,8 +85,10 @@ public class zuhu {
 	//后端-冯朔
 	//已验证通过(未验证通过)
 	public Map add_zuhu() {
-		
-		return generalService.add_zuhu();
+		Map map=new HashMap();
+		map.put("data", generalService.add_zuhu());
+		map.put("code", 200);
+		return map;
 	}
 	
 	
@@ -91,8 +101,10 @@ public class zuhu {
 	//后端-冯朔
 	//已验证通过(未验证通过)
 	public Map update_zuhu(int id) {
-		
-		return generalService.update_zuhu(id);
+		Map map=new HashMap();
+		map.put("data", generalService.update_zuhu(id));
+		map.put("code", 200);
+		return map;
 	}
 	
 	
@@ -105,8 +117,10 @@ public class zuhu {
 	//后端-冯朔
 	//已验证通过(未验证通过)
 	public Map delete_zuhu(int id) {
-		
-		return generalService.update_zuhu(id);
+		Map map=new HashMap();
+		map.put("data", generalService.update_zuhu(id));
+		map.put("code", 200);
+		return map;
 	}
 	
 	
@@ -115,8 +129,11 @@ public class zuhu {
 	@GetMapping("/detele_zuhu_num")
 	@ApiOperation("删除一位租户及其相关信息")
 	//后端-李泽霖
-	public int delete_zuhu_Num(String num){
-		return generalService.delete_zuhu_Num(num);
+	public Map delete_zuhu_Num(String num){		
+		Map map=new HashMap();
+		map.put("data", generalService.delete_zuhu_Num(num));
+		map.put("code", 200);
+		return map;
 	}
 	
 	
@@ -125,9 +142,11 @@ public class zuhu {
 	@GetMapping("/get_zuhu_info_fromid")
 	@ApiOperation("通过搜索id获取租户信息")
 	//后端-李泽霖
-	public List<ZuHu> get_zuhu_info_fromid(String num) {
-
-        return generalService.get_zuhu_info_fromid(num);
+	public Map get_zuhu_info_fromid(String num) {
+		Map map=new HashMap();
+		map.put("data", generalService.get_zuhu_info_fromid(num));
+		map.put("code", 200);
+        return map;
     }
 	
 	
@@ -140,9 +159,11 @@ public class zuhu {
 	})
 	//后端-冯朔
 	//已验证通过(未验证通过)
-	public List<KanFangQQ> get_kanfangqq_by_zuhuid(String id) {
-		
-		return generalService.get_kanfangqq_by_zuhuid(id);
+	public Map get_kanfangqq_by_zuhuid(String id) {
+		Map map=new HashMap();
+		map.put("data", generalService.get_kanfangqq_by_zuhuid(id));
+		map.put("code", 200);
+		return map;
 	}
 	
 	
@@ -155,9 +176,11 @@ public class zuhu {
 	})
 	//后端-冯朔
 	//已验证通过(未验证通过)
-	public List<HeYue> get_heyue_by_zuhuid(String id) {
-		
-		return generalService.get_heyue_by_zuhuid(id);
+	public Map get_heyue_by_zuhuid(String id) {
+		Map map=new HashMap();
+		map.put("data", generalService.get_heyue_by_zuhuid(id));
+		map.put("code", 200);
+		return map;
 	}
 	
 	
@@ -168,9 +191,11 @@ public class zuhu {
 		@ApiImplicitParam(name="id",value="租户编号",required=true)
 	})
 	//后端-朱子剑
-	public List<KanFangQQ> get_kanfangqq_of_zuhu(String id) {
-
-        		return generalService.get_kanfangqq_of_zuhu(id);
+	public Map get_kanfangqq_of_zuhu(String id) {
+			Map map=new HashMap();
+			map.put("data", generalService.get_kanfangqq_of_zuhu(id));
+			map.put("code", 200);
+        	return map;
     	}
 	
 	
@@ -183,9 +208,11 @@ public class zuhu {
 		@ApiImplicitParam(name="id",value="租户编号",required=true)
 	})
 	//后端-朱子剑
-	public List<HeYue> get_pre_heyue_info(String id) {
-		
-		return generalService.get_pre_heyue_info(id);
+	public Map get_pre_heyue_info(String id) {
+		Map map=new HashMap();
+		map.put("data", generalService.get_pre_heyue_info(id));
+		map.put("code", 200);
+		return map;
 	}
 	
 	
@@ -193,9 +220,11 @@ public class zuhu {
 	@GetMapping("/get_fangyuanqq_unsolved_all")
 	@ApiOperation("获取指定的待处理的房源请求信息")
 	//后端-朱子剑
-	public List<FangYuanQQ> get_pre_fangyuanqq_info() {
-		
-		return generalService.get_pre_fangyuanqq_info();
+	public Map get_pre_fangyuanqq_info() {
+		Map map=new HashMap();
+		map.put("data", generalService.get_pre_fangyuanqq_info());
+		map.put("code", 200);
+		return map;
 	}
 	
 	
@@ -204,7 +233,7 @@ public class zuhu {
 	@ApiOperation("获取所有租户(全部信息，包含是否有请求等)")
 	//前端-程鑫
 	//已验证通过
-	public List<ZuHu> get_fangdong_list_full() {
+	public Map get_fangdong_list_full() {
 		List<ZuHu> L =generalService.get_zuhu_all();
 		for(int i=0;i<L.size();i++)
 		{
@@ -217,6 +246,9 @@ public class zuhu {
 				L.get(i).setKanFangQQ("是");
 			}
 		}
-		return L;
+		Map map=new HashMap();
+		map.put("data", L);
+		map.put("code", 200);
+		return map;
 	}	
 }

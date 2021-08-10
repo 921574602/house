@@ -1,5 +1,6 @@
 package com.zr.class3.api.fangyuan;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -34,10 +35,12 @@ public class FangYuanApi {
 	@GetMapping("/get_fangyuan")
 	@ApiOperation("获取满足条件的房源")
 	//前端-程鑫
-	public List<FangYuan> get_fangyuan() {
+	public Map get_fangyuan() {
 		List<FangYuan> list_fangyuan=generalService.search_fangyuan();
-		
-		return list_fangyuan;
+		Map map=new HashMap();
+		map.put("data", list_fangyuan);
+		map.put("code", 200);
+		return map;
 	}
 	
 	
@@ -49,9 +52,11 @@ public class FangYuanApi {
 	@ApiOperation("获取所有房源信息")
 	//后端-李泽霖
 	//已验证通过
-	public List<FangYuan> get_all_fangyuan_info() {
-		
-		return generalService.get_all_fangyuan_info();
+	public Map get_all_fangyuan_info() {
+		Map map=new HashMap();
+		map.put("data", generalService.get_all_fangyuan_info());
+		map.put("code", 200);
+		return map;
 	}
 	
 	
@@ -63,8 +68,11 @@ public class FangYuanApi {
 	})
 	//后端-李泽霖
 	
-	public int delete_fangyuan_Num(String num){
-		return generalService.delete_fangyuan_Num(num);
+	public Map delete_fangyuan_Num(String num){
+		Map map=new HashMap();
+		map.put("data", generalService.delete_fangyuan_Num(num));
+		map.put("code", 200);
+		return map;
 	}
 	
 	
@@ -77,9 +85,11 @@ public class FangYuanApi {
 	})
 	//后端-李泽霖
 	//已验证通过
-	public List<FangYuan> get_fangyuan_info_fromid(String num) {
-
-        return generalService.get_fangyuan_info_fromid(num);
+	public Map get_fangyuan_info_fromid(String num) {
+		Map map=new HashMap();
+		map.put("data", generalService.get_fangyuan_info_fromid(num));
+		map.put("code", 200);
+        return map;
     }
 	
 	
@@ -89,9 +99,11 @@ public class FangYuanApi {
 	@GetMapping("/list_fangyuanqq")
 	@ApiOperation("获取所有房源请求信息")
 	//后端-李泽霖
-	public List<FangYuanQQ> get_all_fangyuanqq_info() {
-		
-		return generalService.get_all_fangyuanqq_info();
+	public Map get_all_fangyuanqq_info() {
+		Map map=new HashMap();
+		map.put("data", generalService.get_all_fangyuanqq_info());
+		map.put("code", 200);
+		return map;
 	}
 	
 	
@@ -102,9 +114,11 @@ public class FangYuanApi {
 		@ApiImplicitParam(name="num",value="房源的id",required=true)
 	})
 	//后端-李泽霖
-	public List<FangDong> get_fangdong_info_from_fangyuanid(String num) {
-
-        return generalService.get_fangdong_info_from_fangyuanid(num);
+	public Map get_fangdong_info_from_fangyuanid(String num) {
+		Map map=new HashMap();
+		map.put("data", generalService.get_fangdong_info_from_fangyuanid(num));
+		map.put("code", 200);
+        return map;
     }
 	
 	
@@ -118,9 +132,11 @@ public class FangYuanApi {
 	})
 	//后端-冯朔
 	//已验证通过(未验证通过)
-	public List<KanFangQQ> get_kanfangqq_by_fangyuanid(String id) {
-		
-		return generalService.get_kanfangqq_by_fangyuanid(id);
+	public Map get_kanfangqq_by_fangyuanid(String id) {
+		Map map=new HashMap();
+		map.put("data", generalService.get_kanfangqq_by_fangyuanid(id));
+		map.put("code", 200);
+		return map;
 	}
 	
 	
@@ -133,8 +149,10 @@ public class FangYuanApi {
 	})
 	//后端-冯朔
 	//已验证通过(未验证通过)
-	public List<HeYue> get_heyue_by_fangyuanid(String id) {
-		
-		return generalService.get_heyue_by_fangyuanid(id);
+	public Map get_heyue_by_fangyuanid(String id) {
+		Map map=new HashMap();
+		map.put("data", generalService.get_heyue_by_fangyuanid(id));
+		map.put("code", 200);
+		return map;
 	}
 }

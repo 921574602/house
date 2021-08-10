@@ -358,5 +358,29 @@ public class GeneralServiceImpl implements GeneralService{
 			List<HeYue> heyue= blogmapper.get_heyue_by_fangyuanid(id);
 			return heyue;
 		}
+		
+		
+		//后端-李泽霖
+		@Override
+		public List<HeYue> get_audit_heyue_info() {
+			List<HeYue> heyue=blogmapper.get_audit_heyue_info();
+			return heyue;
+		}
+		
+		
+		//后端-李泽霖
+		@Override
+		public List<HeYue> get_notaudit_heyue_info() {
+			List<HeYue> heyue=blogmapper.get_notaudit_heyue_info();
+			return heyue;
+		}
+		
+		
+		//后端-李泽霖
+		@Override
+		public List<HeYueJL> get_all_heyuejl_info() {
+			List<HeYueJL> heyue=blogmapper.get_all_heyuejl_info();
+			return heyue;
+		}
 
 }

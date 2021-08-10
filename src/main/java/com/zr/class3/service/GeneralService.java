@@ -78,4 +78,10 @@ public interface GeneralService {
 	public List<KanFangQQ> get_kanfangqq_by_fangyuanid(String id);
 	
 	public List<HeYue> get_heyue_by_fangyuanid(String id);
+	
+	public List<HeYue> get_audit_heyue_info();
+	
+	public List<HeYue> get_notaudit_heyue_info();
+	
+	public List<HeYueJL> get_all_heyuejl_info();
 }

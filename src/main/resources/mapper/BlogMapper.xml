@@ -298,5 +298,27 @@
 		from heyue
 		where FYNum=#{FYNum} and state="待审核"
     </select>
+    
+    
+    <!-- 后端-李泽霖 -->
+    <select id="get_audit_heyue_info" resultType="com.zr.class3.model.HeYue">
+		SELECT *
+		FROM heyue
+		WHERE heyue.State='待审核'
+	</select>
    	
+   	
+   	
+   	<!-- 后端-李泽霖 -->
+   	<select id="get_notaudit_heyue_info" resultType="com.zr.class3.model.HeYue">
+		SELECT *
+		FROM heyue
+		WHERE heyue.State!='待审核'
+	</select>
+	
+	<!-- 后端-李泽霖 -->
+	<select id="get_all_heyuejl_info" resultType="com.zr.class3.model.HeYueJL">
+		SELECT *
+		FROM heyuejl
+	</select>
 </mapper>

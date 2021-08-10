@@ -1,5 +1,6 @@
 package com.zr.class3.api.people;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,9 +33,11 @@ public class fangdong {
 	@ApiOperation("获取所有房东表中的所有条目并返回房东类型的list")
 	//后端-冯朔
 	//已验证通过(未验证通过)
-	public List<FangDong> get_all_fangdong_info() {
-		
-		return generalService.get_all_fangdong_info();
+	public Map get_all_fangdong_info() {
+		Map map=new HashMap();
+		map.put("data", generalService.get_all_fangdong_info());
+		map.put("code", 200);
+		return map;
 	}
 	
 	
@@ -47,9 +50,11 @@ public class fangdong {
 	})
 	//后端-冯朔
 	//已验证通过(未验证通过)
-	public List<FangYuanQQ> get_fangyuan_info_by_fangdongid(String id) {
-		
-		return generalService.get_fangyuan_info_by_fangdongid(id);
+	public Map get_fangyuan_info_by_fangdongid(String id) {
+		Map map=new HashMap();
+		map.put("data", generalService.get_fangyuan_info_by_fangdongid(id));
+		map.put("code", 200);
+		return map;
 	}
 	
 	
@@ -61,9 +66,11 @@ public class fangdong {
 	})
 	//后端-冯朔
 	//已验证通过(未验证通过)
-	public List<HeYue> get_heyue_info_by_fangdongid(String id) {
-		
-		return generalService.get_heyue_info_by_fangdongid(id);
+	public Map get_heyue_info_by_fangdongid(String id) {
+		Map map=new HashMap();
+		map.put("data", generalService.get_heyue_info_by_fangdongid(id));
+		map.put("code", 200);
+		return map;
 	}
 	
 	
@@ -72,7 +79,9 @@ public class fangdong {
 	@ApiOperation("获取所有房东(全部信息，包含是否有请求等)")
 	//前端-程鑫
 	//已验证通过
-	public List<FangDong> get_fangdong_list_full() {
+	public Map get_fangdong_list_full() {
+		Map M=new HashMap();
+		
 		List<FangDong> L =generalService.get_all_fangdong_info();
 		for(int i=0;i<L.size();i++)
 		{
@@ -85,7 +94,9 @@ public class fangdong {
 				L.get(i).setHeYueQueRen("是");
 			}
 		}
-		return L;
+		M.put("code", 0);
+		M.put("data", L);
+		return M;
 	}	
 	
 	
@@ -115,8 +126,10 @@ public class fangdong {
 	//后端-冯朔
 	//未验证通过
 	public Map search_fangdong(String desc) {
-		
-		return generalService.search_fangdong(desc);
+		Map map=new HashMap();
+		map.put("data", generalService.search_fangdong(desc));
+		map.put("code", 200);
+		return map;
 	}
 	
 	@CrossOrigin
@@ -126,8 +139,10 @@ public class fangdong {
 	//后端-冯朔
 	//已验证通过
 	public Map add_fangdong(FangDong fangdong) {
-		
-		return generalService.add_fangdong(fangdong);
+		Map map=new HashMap();
+		map.put("data", generalService.add_fangdong(fangdong));
+		map.put("code", 200);
+		return map;
 	}
 	
 	
@@ -140,8 +155,10 @@ public class fangdong {
 	//后端-冯朔
 	//已验证通过(未验证通过)
 	public Map update_fangdong(int id) {
-		
-		return generalService.update_fangdong(id);
+		Map map=new HashMap();
+		map.put("data", generalService.update_fangdong(id));
+		map.put("code", 200);
+		return map;
 	}
 	
 	
@@ -154,8 +171,10 @@ public class fangdong {
 	//后端-冯朔
 	//未验证通过
 	public Map delete_fangdong(int id) {
-		
-		return generalService.update_fangdong(id);
+		Map map=new HashMap();
+		map.put("data", generalService.update_fangdong(id));
+		map.put("code", 200);
+		return map;
 	}
 	
 	
@@ -165,9 +184,11 @@ public class fangdong {
 	//后端-李泽霖
 	//已验证通过
 
-	public List<FangDongQQ> get_all_fangdongqq_info() {
-
-        return generalService.get_all_fangdongqq_info();
+	public Map get_all_fangdongqq_info() {
+		Map map=new HashMap();
+		map.put("data", generalService.get_all_fangdongqq_info());
+		map.put("code", 200);
+        return map;
     }
 	
 	
@@ -176,9 +197,11 @@ public class fangdong {
 	@ApiOperation("获取申请中房东请求信息")
 	//后端-李泽霖
 	//已验证通过
-	public List<FangDongQQ> get_pre_fangdongqq_info() {
-
-        return generalService.get_pre_fangdongqq_info();
+	public Map get_pre_fangdongqq_info() {
+		Map map=new HashMap();
+		map.put("data", generalService.get_pre_fangdongqq_info());
+		map.put("code", 200);
+        return map;
     }
 	
 	
@@ -190,9 +213,11 @@ public class fangdong {
 	})
 	//前端-程鑫
 	//已验证通过
-	public List<FangYuanQQ> get_all_fangyuanqq_id(String id_fangdong) {
-
-        return generalService.get_all_fangyuanqq_id(id_fangdong);
+	public Map get_all_fangyuanqq_id(String id_fangdong) {
+		Map map=new HashMap();
+		map.put("data", generalService.get_all_fangyuanqq_id(id_fangdong));
+		map.put("code", 200);
+        return map;
     }
 	
 	
@@ -204,9 +229,11 @@ public class fangdong {
 	})
 	//前端-程鑫
 	//已验证通过
-	public List<HeYue> get_all_heyue_id(String id_fangdong) {
-
-        return generalService.get_all_heyue_id(id_fangdong);
+	public Map get_all_heyue_id(String id_fangdong) {
+		Map map=new HashMap();
+		map.put("data", generalService.get_all_heyue_id(id_fangdong));
+		map.put("code", 200);
+        return map;
     }
 	
 	
@@ -219,8 +246,11 @@ public class fangdong {
 	})
 	//后端-李泽霖
 	//已验证通过
-	public int delete_fangdong_Num(String num){
-		return generalService.delete_fangdong_Num(num);
+	public Map delete_fangdong_Num(String num){
+		Map map=new HashMap();
+		map.put("data", generalService.delete_fangdong_Num(num));
+		map.put("code", 200);
+		return map;
 	}
 	
 	

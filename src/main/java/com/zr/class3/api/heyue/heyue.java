@@ -1,6 +1,8 @@
 package com.zr.class3.api.heyue;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -9,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.zr.class3.model.HeYue;
+import com.zr.class3.model.HeYueJL;
 import com.zr.class3.model.ZuHu;
 import com.zr.class3.service.GeneralService;
 
@@ -30,9 +33,11 @@ public class heyue {
 	@GetMapping("get_heyue_solved_all")
 	@ApiOperation("获取所有已通过的合约信息")
 	//后端-朱子剑
-	public List<HeYue> get_pass_heyue_info() {
-		
-		return generalService.get_pass_heyue_info();
+	public Map get_pass_heyue_info() {
+		Map map=new HashMap();
+		map.put("data", generalService.get_pass_heyue_info());
+		map.put("code", 200);
+		return map;
 	}
 	
 	
@@ -43,8 +48,49 @@ public class heyue {
 		@ApiImplicitParam(name="id",value="合约编号",required=true)
 	})
 	//后端-朱子剑
-	public List<ZuHu> get_zuhu_info_by_heyueid(String id) {
-		
-		return generalService.get_zuhu_info_by_heyueid(id);
+	public Map get_zuhu_info_by_heyueid(String id) {
+		Map map=new HashMap();
+		map.put("data", generalService.get_zuhu_info_by_heyueid(id));
+		map.put("code", 200);
+		return map;
+	}
+	
+	
+	
+	@CrossOrigin
+	@GetMapping("/list_audit_heyue")
+	@ApiOperation("获取审核中的合约信息")
+	//后端-李泽霖
+	public Map get_audit_heyue_info() {
+		Map map=new HashMap();
+		map.put("data", generalService.get_audit_heyue_info());
+		map.put("code", 200);
+		return map;
+	}
+	
+	
+	
+	@CrossOrigin
+	@GetMapping("/list_notaudit_heyue")
+	@ApiOperation("获取除了待审核中的合约信息")
+	//后端-李泽霖
+	public Map get_notaudit_heyue_info() {
+		Map map=new HashMap();
+		map.put("data", generalService.get_notaudit_heyue_info());
+		map.put("code", 200);
+		return map;
+	}
+	
+	
+	
+	@CrossOrigin
+	@GetMapping("/list_all_heyuejl")
+	@ApiOperation("获取所有的合约记录")
+	//后端-李泽霖
+	public Map get_all_heyuejl_info() {
+		Map map=new HashMap();
+		map.put("data", generalService.get_all_heyuejl_info());
+		map.put("code", 200);
+		return map;
 	}
 }

@@ -78,4 +78,10 @@ public interface BlogMapper {
 	List<KanFangQQ> get_kanfangqq_by_fangyuanid(@Param("FYNum") String id);
 	
 	List<HeYue> get_heyue_by_fangyuanid(@Param("FYNum") String id);
+	
+	List<HeYue> get_audit_heyue_info();
+	
+	List<HeYue> get_notaudit_heyue_info();
+	
+	List<HeYueJL> get_all_heyuejl_info();
 }
