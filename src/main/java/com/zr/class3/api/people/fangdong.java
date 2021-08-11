@@ -3,6 +3,9 @@ package com.zr.class3.api.people;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -79,7 +82,8 @@ public class fangdong {
 	@ApiOperation("获取所有房东(全部信息，包含是否有请求等)")
 	//前端-程鑫
 	//已验证通过
-	public Map get_fangdong_list_full() {
+	public Map get_fangdong_list_full(String FDNum,String FDNname,String Email,String Sex,String FDEdu,String FYQQ,String HeYueQueRen  ) {
+		
 		Map M=new HashMap();
 		
 		List<FangDong> L =generalService.get_all_fangdong_info();
@@ -94,6 +98,120 @@ public class fangdong {
 				L.get(i).setHeYueQueRen("是");
 			}
 		}
+		
+		
+		
+		if(FDNum !="" && FDNum!=null)
+		{
+			Pattern pt = Pattern.compile(FDNum);
+			for(int i=0;i<L.size();i++)
+			{
+				Matcher mt = pt.matcher(L.get(i).getFDNum());
+				if(!mt.find())
+				{
+					L.remove(i);
+					i--;
+				}
+			}
+		}
+		if(FDNname !="" && FDNname!=null)
+		{
+			Pattern pt = Pattern.compile(FDNname);
+			for(int i=0;i<L.size();i++)
+			{
+				Matcher mt = pt.matcher(L.get(i).getFDName());
+				if(!mt.find())
+				{
+					L.remove(i);
+					i--;
+				}
+			}
+		}
+		if(Email !="" && Email!=null)
+		{
+			Pattern pt = Pattern.compile(Email);
+			for(int i=0;i<L.size();i++)
+			{
+				Matcher mt = pt.matcher(L.get(i).getFDEmail());
+				if(!mt.find())
+				{
+					L.remove(i);
+					i--;
+				}
+			}
+		}
+		if(Sex !="" && Sex!=null)
+		{
+			Pattern pt = Pattern.compile(Email);
+			for(int i=0;i<L.size();i++)
+			{
+				Matcher mt = pt.matcher(L.get(i).getSex());
+				if(!mt.find())
+				{
+					L.remove(i);
+					i--;
+				}
+			}
+		}
+		if(FDEdu !="" && FDEdu!=null)
+		{
+			Pattern pt = Pattern.compile(FDEdu);
+			for(int i=0;i<L.size();i++)
+			{
+				Matcher mt = pt.matcher(L.get(i).getFDEdu());
+				if(!mt.find())
+				{
+					L.remove(i);
+					i--;
+				}
+			}
+		}
+		if(FYQQ !="" && FYQQ!=null)
+		{
+			if(FYQQ.equals("1"))
+			{
+				FYQQ="是";
+			}
+			else
+			{
+				FYQQ="否";
+			}
+			Pattern pt = Pattern.compile(FYQQ);
+			for(int i=0;i<L.size();i++)
+			{
+				Matcher mt = pt.matcher(L.get(i).getFYQQ());
+				if(!mt.find())
+				{
+					L.remove(i);
+					i--;
+				}
+			}
+		}
+		if(HeYueQueRen !="" && HeYueQueRen!=null)
+		{
+			if(HeYueQueRen.equals("1"))
+			{
+				HeYueQueRen="是";
+			}
+			else
+			{
+				HeYueQueRen="否";
+			}
+			Pattern pt = Pattern.compile(HeYueQueRen);
+			for(int i=0;i<L.size();i++)
+			{
+				Matcher mt = pt.matcher(L.get(i).getHeYueQueRen());
+				if(!mt.find())
+				{
+					L.remove(i);
+					i--;
+				}
+			}
+		}
+		
+		
+		
+		
 		M.put("code", 0);
 		M.put("data", L);
 		return M;
